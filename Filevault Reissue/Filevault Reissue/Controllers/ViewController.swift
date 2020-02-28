@@ -23,10 +23,12 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
         
         DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                self.view.window?.orderFrontRegardless()
+            while true {
+                DispatchQueue.main.async {
+                    self.view.window?.orderFrontRegardless()
+                }
+                sleep(120)
             }
-            sleep(120)
         }
     }
 

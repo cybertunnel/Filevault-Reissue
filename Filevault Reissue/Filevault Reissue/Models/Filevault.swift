@@ -23,4 +23,27 @@ class Filevault {
     internal func reissueRecoveryKey(user: String, password: String) -> Any? {
         return nil
     }
+    
+    static func isFilevaultEnabled() -> Bool {
+        
+        let process = Process()
+        process.launchPath = "/usr/bin/fdesetup"
+        process.arguments = ["status"]
+        
+        let stdOut = Pipe()
+        process.standardOutput = stdOut
+        
+        process.launch()
+        let data = stdOut.fileHandleForReading.readDataToEndOfFile()
+        let result = String(bytes: data, encoding: .utf8)
+        print(result)
+        if result?.contains("FileVault is On") ?? false {
+            return true
+        }
+        else {
+            return false
+        }
+        
+        return false
+    }
 }
