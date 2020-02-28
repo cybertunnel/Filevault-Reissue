@@ -134,6 +134,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="infoBtnPressed:" target="XfG-lQ-9wD" id="bqU-k4-zT9"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4cZ-RL-iCp">
                                 <rect key="frame" x="308" y="34" width="83" height="32"/>
@@ -144,6 +147,9 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="submitBtnPressed:" target="XfG-lQ-9wD" id="cw4-SF-vxM"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-2M-Lbb">
                                 <rect key="frame" x="20" y="77" width="284" height="21"/>
@@ -194,6 +200,14 @@ DQ
                             <constraint firstItem="eg3-Jg-85j" firstAttribute="top" secondItem="nuU-Ir-SUi" secondAttribute="bottom" constant="20" id="zvc-y3-icK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="infoBtn" destination="I1t-QN-n48" id="fgy-fi-1Ao"/>
+                        <outlet property="passwordField" destination="jah-7O-goR" id="MMt-97-q78"/>
+                        <outlet property="submitBtn" destination="4cZ-RL-iCp" id="dHy-Ii-YLG"/>
+                        <outlet property="usernameField" destination="w6T-2M-Lbb" id="8xS-LM-BLx"/>
+                        <outlet property="viewInstructions" destination="eg3-Jg-85j" id="mr2-3b-pfB"/>
+                        <outlet property="viewTitle" destination="RrD-ru-cVk" id="fuC-07-8T6"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -21,8 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        
         //  Check to see if Filevault is enabled
         if !Filevault.isFilevaultEnabled() {
             // Filevault is not enabled

@@ -39,6 +39,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func submitBtnPressed(_ sender: NSButton) {
+        self.view.window?.close()
+        NSApp.abortModal()
         
     }
     
