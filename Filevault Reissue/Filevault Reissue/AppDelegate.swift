@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !Filevault.isFilevaultEnabled() {
             // Filevault is not enabled
             Log.write("Filevault is not enabled on this device!", level: .fault, category: .main)
-            NSApp.terminate(self)
+            exit(1)
         }
         if self.autoReissue() {
             Log.write("Successfully reissued the recovery key automatically.", level: .info, category: .main)
@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApp.addWindowsItem(promptWindow.window! as! MainWindow, title: "Prompt", filename: false)
             NSApp.run()
             
+            // Kills itself when the window is closed
             NSApp.terminate(self)
             
         }
@@ -54,17 +55,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func autoReissue() -> Bool {
+        // Gets admin usernames from CLI arguments
         guard let users = ArgParser.getAdminUsernames() else {
             return false
         }
+        
+        // Gets admin passwords from CLI arguments
         guard let passwords = ArgParser.getAdminPasswords() else {
             return false
         }
         
+        Log.write("Attempting to automatically reissue Filevault password using provided usernames and passwords.", level: .info, category: .main)
         for user in users {
+            
+            Log.write("Attempting to authenticate \"\(user)\" to Filevault to automatically reissue.", level: .debug, category: .main)
             for password in passwords {
-                // TODO: Provide a validation it worked
-                try! fv.reissueRecoveryKey(user: user, password: password)
+                do {
+                    let result = try fv.reissueRecoveryKey(user: user, password: password)
+                    if result.successful {
+                        Log.write("Successfully issued Filevault key of \(result.recoveryKey ?? "").", level: .info, category: .main)
+                        return true
+                    }
+                    
+                }
+                catch Filevault.FilevaultError.UserNotEnabled {
+                    Log.write("Was unable to reissue Filevault recovery key using user \"\(user)\"; they are not enabled for Filevault.", level: .fault, category: .main)
+                }
+                catch Filevault.FilevaultError.InvalidUsernameOrPassword {
+                    Log.write("Was unable to reissue Filevault recovery key using user \"\(user)\"; wrong password for the user.", level: .fault, category: .main)
+                }
+                catch {
+                    Log.write("Was unable to reissue Filevault recovery key using user \"\(user)\"; unknown reason", level: .fault, category: .main)
+                }
             }
         }
         
