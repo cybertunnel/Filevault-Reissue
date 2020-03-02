@@ -22,6 +22,8 @@ class Filevault {
     
     private func isUserAdded(_ user: String) -> Bool {
         
+        Log.write("Checking if user \(user) is activated for Filevault.", level: .info, category: .filevault)
+        
         let process = Process()
         process.launchPath = "/usr/bin/fdesetup"
         process.arguments = ["list"]
@@ -43,10 +45,14 @@ class Filevault {
     
     internal func reissueRecoveryKey(user: String, password: String) throws -> ReissueResults {
         
+        Log.write("Attempting to reissue Filevault recovery key for user \(user).", level: .info, category: .filevault)
+        
         if !Filevault.isFilevaultEnabled() {
+            Log.write("Filevalt is not enabled!", level: .fault, category: .filevault)
             throw FilevaultError.FilevaultNotEnabled
         }
         if !self.isUserAdded(user) {
+            Log.write("User provided is not enabled for Filevault!", level: .fault, category: .filevault)
             throw FilevaultError.UserNotEnabled
         }
         let process = Process()
@@ -87,18 +93,22 @@ class Filevault {
         let err = String(bytes: errData, encoding: .utf8)
         
         if result?.contains("New personal recovery key") ?? false {
+            Log.write("Successfully was able to reissue recovery key.", level: .info, category: .filevault)
             let key = result?.components(separatedBy: " = ")[1]
             return ReissueResults(successful: true, recoveryKey: key)
         }
         else if result == "" && err?.contains("Unable to unlock or authenticate to FileVault") ?? false {
+            Log.write("Username and/or password provided are an invalid combination.", level: .fault, category: .filevault)
             throw FilevaultError.InvalidUsernameOrPassword
         }
         
+        // Cover all cases, return false
         return ReissueResults(successful: false, recoveryKey: nil)
     }
     
     static func isFilevaultEnabled() -> Bool {
         
+        Log.write("Checking if Filevault is enabled.", level: .info, category: .filevault)
         let process = Process()
         process.launchPath = "/usr/bin/fdesetup"
         process.arguments = ["status"]
@@ -110,9 +120,11 @@ class Filevault {
         let data = stdOut.fileHandleForReading.readDataToEndOfFile()
         let result = String(bytes: data, encoding: .utf8)
         if result?.contains("FileVault is On") ?? false {
+            Log.write("Filevault is enabled.", level: .info, category: .filevault)
             return true
         }
         else {
+            Log.write("Filevault is not enabled.", level: .info, category: .filevault)
             return false
         }
     }
