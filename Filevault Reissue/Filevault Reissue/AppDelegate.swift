@@ -39,7 +39,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 return
             }
             
-            NSApp.runModal(for: promptWindow.window! as! MainWindow)
+            //NSApp.runModal(for: promptWindow.window! as! MainWindow)
+            NSApp.addWindowsItem(promptWindow.window! as! MainWindow, title: "Prompt", filename: false)
+            NSApp.run()
             
             NSApp.terminate(self)
             
@@ -62,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for user in users {
             for password in passwords {
                 // TODO: Provide a validation it worked
-                fv.reissueRecoveryKey(user: user, password: password)
+                try! fv.reissueRecoveryKey(user: user, password: password)
             }
         }
         

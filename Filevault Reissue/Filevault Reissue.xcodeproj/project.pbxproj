@@ -25,7 +25,6 @@
 		816AF00C2408624900A4C85E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		816AF00E2408624A00A4C85E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		816AF0112408624A00A4C85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		816AF0132408624A00A4C85E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		816AF01F240863AF00A4C85E /* ArgParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParser.swift; sourceTree = "<group>"; };
 		81A5E1F624096C4C00FF6E07 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		81A5E1F824096C7600FF6E07 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -90,7 +89,6 @@
 			children = (
 				816AF0102408624A00A4C85E /* Main.storyboard */,
 				816AF00E2408624A00A4C85E /* Assets.xcassets */,
-				816AF0132408624A00A4C85E /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
