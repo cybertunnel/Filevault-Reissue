@@ -59,6 +59,10 @@ class ViewController: NSViewController {
             self.viewInstructions.stringValue = prefInstructions
         }
         
+        // Update placeholder text to the ones stored in preferences
+        self.usernameField.placeholderString = Preferences.sharedInstance.usernamePlaceholder
+        self.passwordField.placeholderString = Preferences.sharedInstance.passwordPlaceholder
+        
         if let logoPath = Preferences.sharedInstance.viewLogoPath {
             // Update logo to on provided in preferences
             if FileManager.default.fileExists(atPath: logoPath) {
@@ -144,6 +148,12 @@ class ViewController: NSViewController {
     
     @IBAction func infoBtnPressed(_ sender: NSButton) {
         Log.write("User has requested for more information around this prompt, showing them provided information.", level: .info, category: .view)
+        guard let vc = self.storyboard?.instantiateController(withIdentifier: "infoViewController") as? InformationViewController else {
+            Log.write("Error occurred while attempting to get the informational view controller.", level: .fault, category: .view)
+            return
+        }
+        self.presentAsSheet(vc)
+        
     }
 
 

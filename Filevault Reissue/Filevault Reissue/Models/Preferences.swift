@@ -43,6 +43,24 @@ class Preferences {
         }
     }
     
+    internal var usernamePlaceholder: String? {
+        get {
+            return self.userDefaults.string(forKey: "usernamePlaceholder")
+        }
+    }
+    
+    internal var passwordPlaceholder: String? {
+        get {
+            return self.userDefaults.string(forKey: "passwordPlaceholder")
+        }
+    }
+    
+    internal var moreInformationText: String? {
+        get {
+            return self.userDefaults.string(forKey: "moreInformationText")
+        }
+    }
+    
     init(nsUserDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = nsUserDefaults
     }

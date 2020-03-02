@@ -206,6 +206,74 @@ DQ
             </objects>
             <point key="canvasLocation" x="143.5" y="655"/>
         </scene>
+        <!--Information View Controller-->
+        <scene sceneID="ujJ-Nn-cZn">
+            <objects>
+                <viewController storyboardIdentifier="infoViewController" id="zEM-zC-euQ" customClass="InformationViewController" customModule="Filevault_Reissue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dLB-Xp-VuH">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="162"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wAC-hp-qmW">
+                                <rect key="frame" x="134" y="112" width="183" height="30"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="More Information" id="1Bx-Hu-MIe">
+                                    <font key="font" metaFont="systemThin" size="26"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="u7w-Q4-qHs">
+                                <rect key="frame" x="13" y="56" width="424" height="32"/>
+                                <textFieldCell key="cell" selectable="YES" title="Configure this section in preferences under the &quot;moreInformationText&quot; key." id="Fbx-RR-2fu">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Csy-T5-lBw">
+                                <rect key="frame" x="188" y="13" width="75" height="32"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iRB-fs-fse">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dismissController:" target="zEM-zC-euQ" id="PEr-P3-XsY"/>
+                                </connections>
+                            </button>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Yai-70-Pde">
+                                <rect key="frame" x="121" y="101" width="209" height="5"/>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wAC-hp-qmW" firstAttribute="top" secondItem="dLB-Xp-VuH" secondAttribute="top" constant="20" id="4yk-vB-02r"/>
+                            <constraint firstItem="Yai-70-Pde" firstAttribute="top" secondItem="wAC-hp-qmW" secondAttribute="bottom" constant="8" id="Aob-5F-CQa"/>
+                            <constraint firstItem="Csy-T5-lBw" firstAttribute="top" secondItem="u7w-Q4-qHs" secondAttribute="bottom" constant="15" id="DW0-wN-SdE"/>
+                            <constraint firstItem="u7w-Q4-qHs" firstAttribute="top" secondItem="Yai-70-Pde" secondAttribute="bottom" constant="15" id="Dx9-zZ-iUS"/>
+                            <constraint firstAttribute="trailing" secondItem="u7w-Q4-qHs" secondAttribute="trailing" constant="15" id="H6T-6w-jRz"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wAC-hp-qmW" secondAttribute="trailing" constant="20" id="Ig9-fH-pT8"/>
+                            <constraint firstAttribute="bottom" secondItem="Csy-T5-lBw" secondAttribute="bottom" constant="20" id="MC3-Lg-fLc"/>
+                            <constraint firstItem="wAC-hp-qmW" firstAttribute="centerX" secondItem="dLB-Xp-VuH" secondAttribute="centerX" id="OAU-vx-nRj"/>
+                            <constraint firstItem="u7w-Q4-qHs" firstAttribute="leading" secondItem="dLB-Xp-VuH" secondAttribute="leading" constant="15" id="Q82-p0-kzN"/>
+                            <constraint firstItem="Yai-70-Pde" firstAttribute="centerX" secondItem="wAC-hp-qmW" secondAttribute="centerX" id="RJz-aY-614"/>
+                            <constraint firstItem="wAC-hp-qmW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dLB-Xp-VuH" secondAttribute="leading" constant="20" id="Rio-Aw-Xof"/>
+                            <constraint firstItem="Yai-70-Pde" firstAttribute="leading" secondItem="wAC-hp-qmW" secondAttribute="leading" constant="-15" id="c68-lO-yCn"/>
+                            <constraint firstItem="Csy-T5-lBw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dLB-Xp-VuH" secondAttribute="leading" constant="20" id="cjM-X5-nHn"/>
+                            <constraint firstItem="Yai-70-Pde" firstAttribute="trailing" secondItem="wAC-hp-qmW" secondAttribute="trailing" constant="15" id="duK-Yj-toa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Csy-T5-lBw" secondAttribute="trailing" constant="20" id="iOG-fh-vHk"/>
+                            <constraint firstItem="Csy-T5-lBw" firstAttribute="centerX" secondItem="dLB-Xp-VuH" secondAttribute="centerX" id="yLm-tc-V7w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="informationText" destination="u7w-Q4-qHs" id="5ec-Ho-Mot"/>
+                    </connections>
+                </viewController>
+                <customObject id="QhD-2T-1kr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="403"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NSApplicationIcon" width="32" height="32"/>
