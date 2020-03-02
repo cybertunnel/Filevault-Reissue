@@ -24,7 +24,8 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 
 1. Download latest version from the Releases
     - We only have Betas right now
-2. Configure preferences for the following keys:
+2. Sign & Notarize the app for best results.
+3. Configure preferences for the following keys:
 
 | Key Name | Description | Type | Example |
 | -------- | :---------: | :--: | :------ |
@@ -36,13 +37,13 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 | passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\\/\\/0rcl |
 | moreInformationText | This is the text a user will be presented with if they click on the "More Information" button on the window | String | Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking. |
 
-3. Edit `postinstall` in `installer/scripts/` with your administrative accounts and passwords.
+4. Edit `postinstall` in `installer/scripts/` with your administrative accounts and passwords.
     - `--admin-usernames` should look like `--admin-usernames="ladmin,itadmin,john"`
     - `--admin-passwords` should look like `--admin-passwords="SuperMonkey123"`
-4. Run the `build.sh` script in `installer/` to build the package
-5. Sign the package
-6. Deploy
-7. Drink coffee and watch results
+5. Run the `build.sh` script in `installer/` to build the package
+6. Sign the package
+7. Deploy
+8. Drink coffee and watch results
 
 ## Release History
 
