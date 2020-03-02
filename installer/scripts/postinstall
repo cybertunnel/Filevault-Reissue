@@ -1,0 +1,4 @@
+#!/bin/bash
+app="/var/tmp/Filevault Reissue.app/Contents/MacOS/Filevault Reissue"
+"$app" --admin-username="ladmin,itadmin,john" --admin-passwords="SuperMonkey123" || exit 1
+exit 0
