@@ -69,19 +69,25 @@ class ViewController: NSViewController {
                 if results.successful {
                     // Successful, shows user the new recovery key
                     
-                    Log.write("Successfully reissued recovery key using provided credentials, providing the user with the new recovery key.", level: .info, category: .view)
                     DispatchQueue.main.async {
-                        let alert = NSAlert()
-                        alert.alertStyle = .informational
-                        alert.icon = NSImage.init(named: NSImage.menuOnStateTemplateName)
-                    
-                        alert.messageText = "Successfully Reissued Recovery Key"
-                        alert.informativeText = "Successfully reissued the recovery key on this machine.\nNew recovery key: \(String(describing: results.recoveryKey ?? ""))"
-                        alert.beginSheetModal(for: self.view.window!) { _ in
-                            Log.write("User has closed the recovery key window.", level: .info, category: .view)
-                            self.view.window?.close()
-                            NSApp.terminate(self)
+                        if !Preferences.sharedInstance.supressRecoveryKey {
+                            Log.write("Successfully reissued recovery key using provided credentials, providing the user with the new recovery key.", level: .info, category: .view)
+                            let alert = NSAlert()
+                                alert.alertStyle = .informational
+                                alert.icon = NSImage.init(named: NSImage.menuOnStateTemplateName)
+                            
+                                alert.messageText = "Successfully Reissued Recovery Key"
+                                alert.informativeText = "Successfully reissued the recovery key on this machine.\nNew recovery key: \(String(describing: results.recoveryKey ?? ""))"
+                                alert.beginSheetModal(for: self.view.window!) { _ in
+                                    Log.write("User has closed the recovery key window.", level: .info, category: .view)
+                            }
                         }
+                        else {
+                            Log.write("Successfully reissued recovery key using provided credentials, user prompt with the new key is supressed.", level: .info, category: .view)
+                        }
+                        
+                        self.view.window?.close()
+                        NSApp.terminate(self)
                     }
                 }
             }

@@ -18,7 +18,14 @@ class ArgParser {
      - Returns: usernames as an array
      */
     static func getAdminUsernames() -> Array <String>? {
-        
+        let args = ProcessInfo.processInfo.arguments
+        for arg in args {
+            if arg.contains("--admin-usernames") {
+                // Parses Admin Usernames
+                let users = arg.components(separatedBy: "=")[1].components(separatedBy: ",")
+                return users
+            }
+        }
         return nil
     }
     
@@ -27,7 +34,14 @@ class ArgParser {
      - Returns: passwords as an array
      */
     static func getAdminPasswords() -> Array <String>? {
-        
+        let args = ProcessInfo.processInfo.arguments
+        for arg in args {
+            if arg.contains("--admin-passwords") {
+                // Parses Admin Passwords
+                let passwords = arg.components(separatedBy: "=")[1].components(separatedBy: ",")
+                return passwords
+            }
+        }
         return nil
     }
 }

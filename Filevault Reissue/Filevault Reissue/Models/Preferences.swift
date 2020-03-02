@@ -10,7 +10,7 @@ import Foundation
 
 class Preferences {
     
-    let sharedInstance = Preferences()
+    static let sharedInstance = Preferences()
     private let userDefaults: UserDefaults
     
     internal var viewTitle: String? {
@@ -34,6 +34,12 @@ class Preferences {
     internal var infoURL: String? {
         get {
             return self.userDefaults.string(forKey: "infoURL")
+        }
+    }
+    
+    internal var supressRecoveryKey: Bool {
+        get {
+            return self.userDefaults.bool(forKey: "supressRecoveryKey")
         }
     }
     
