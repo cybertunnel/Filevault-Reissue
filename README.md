@@ -46,7 +46,7 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 
 ## Release History
 
-The release history is available here.
+The release history is available [here](CHANGELOG.md).
 
 ## Getting Help
 
