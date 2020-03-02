@@ -12,6 +12,14 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 
 ## In Action
 
+### Prompt User Sees
+![Filevault Reissue Prompt](https://user-images.githubusercontent.com/23121750/75719634-129e2480-5ca3-11ea-9f48-3537c0c1a6e2.png)
+
+### More Information Dialog
+![Filevault Reissue Info Dialog](https://user-images.githubusercontent.com/23121750/75719779-5a24b080-5ca3-11ea-9d8f-e791a31fafa8.png)
+
+![Filevault Reissue Key Display](https://user-images.githubusercontent.com/23121750/75719867-893b2200-5ca3-11ea-863c-b079a629cb8b.png)
+
 ## Quick Start
 
 1. Download latest version from the Releases
@@ -25,7 +33,7 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 | viewLogoPath | This is the logo that is displayed to the end user. Usually the company logo. | String | /var/tmp/companyLogo.png |
 | supressRecoveryKey | This will prevent the user from seeing the new recovery key when issued. | True / False | False |
 | usernamePlaceholder | This is what will hold the place of the username field. Usually input a generic username that matches your scheme. | String | johnsmith |
-| passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\/\/0rcl |
+| passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\\/\\/0rcl |
 | moreInformationText | This is the text a user will be presented with if they click on the "More Information" button on the window | String | Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking. |
 
 3. Edit `postinstall` in `installer/scripts/` with your administrative accounts and passwords.
