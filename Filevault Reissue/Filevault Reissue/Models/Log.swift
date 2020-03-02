@@ -17,7 +17,7 @@ class Log {
         case debug = 2, fault = 17, error = 16, info = 1
     }
     enum Category: String {
-        case main = "MAIN", filevault = "Filevault", UI = "UI"
+        case main = "MAIN", filevault = "Filevault", view = "View", window = "Window", preferences = "Preferences", parser = "ArgumentParser"
     }
     
     static let appName = "com.comcast.cable.cis.Filevault-Reissue"
