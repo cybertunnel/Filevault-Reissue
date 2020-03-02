@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var infoBtn: NSButton!
     @IBOutlet weak var submitBtn: NSButton!
     @IBOutlet weak var errorLabel: NSTextField!
+    @IBOutlet weak var logo: NSImageView!
     
     // MARK: Variables
     private var running: Bool = false {
@@ -44,6 +45,28 @@ class ViewController: NSViewController {
                     self.view.window?.orderFrontRegardless()
                 }
                 sleep(120)
+            }
+        }
+        
+        // Load View using Preferences
+        if let prefTitle = Preferences.sharedInstance.viewTitle {
+            // Update title to one in preferences
+            self.viewTitle.stringValue = prefTitle
+        }
+        
+        if let prefInstructions = Preferences.sharedInstance.viewInstructions {
+            // Update instructions to one in preferences
+            self.viewInstructions.stringValue = prefInstructions
+        }
+        
+        if let logoPath = Preferences.sharedInstance.viewLogoPath {
+            // Update logo to on provided in preferences
+            if FileManager.default.fileExists(atPath: logoPath) {
+                let img = NSImage(byReferencingFile: logoPath)
+                self.logo.image = img
+            }
+            else {
+                Log.write("Provided logo path does not exist, unable to set logo to provided file.", level: .fault, category: .view)
             }
         }
     }

@@ -194,6 +194,7 @@ DQ
                     <connections>
                         <outlet property="errorLabel" destination="YaD-GT-v3f" id="j3H-cC-usS"/>
                         <outlet property="infoBtn" destination="I1t-QN-n48" id="fgy-fi-1Ao"/>
+                        <outlet property="logo" destination="l5r-Hv-h7h" id="0qh-Ns-otj"/>
                         <outlet property="passwordField" destination="jah-7O-goR" id="MMt-97-q78"/>
                         <outlet property="submitBtn" destination="4cZ-RL-iCp" id="dHy-Ii-YLG"/>
                         <outlet property="usernameField" destination="w6T-2M-Lbb" id="8xS-LM-BLx"/>
