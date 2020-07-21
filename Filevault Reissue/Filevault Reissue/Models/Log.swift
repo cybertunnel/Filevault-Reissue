@@ -20,7 +20,7 @@ class Log {
         case main = "MAIN", filevault = "Filevault", view = "View", window = "Window", preferences = "Preferences", parser = "ArgumentParser"
     }
     
-    static let appName = "com.comcast.cable.cis.Filevault-Reissue"
+    static let appName = "com.github.cybertunnel.Filevault-Reissue"
     
     /**
      Writes the provided information to the log.
