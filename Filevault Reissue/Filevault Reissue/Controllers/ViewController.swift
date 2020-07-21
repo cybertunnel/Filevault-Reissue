@@ -107,14 +107,15 @@ class ViewController: NSViewController {
                                 alert.informativeText = "Successfully reissued the recovery key on this machine.\nNew recovery key: \(String(describing: results.recoveryKey ?? ""))"
                                 alert.beginSheetModal(for: self.view.window!) { _ in
                                     Log.write("User has closed the recovery key window.", level: .info, category: .view)
+                                    self.view.window?.close()
+                                    NSApp.terminate(self)
                             }
                         }
                         else {
                             Log.write("Successfully reissued recovery key using provided credentials, user prompt with the new key is supressed.", level: .info, category: .view)
+                            self.view.window?.close()
+                            NSApp.terminate(self)
                         }
-                        
-                        self.view.window?.close()
-                        NSApp.terminate(self)
                     }
                 }
             }
