@@ -26,7 +26,9 @@ Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Appl
 
 ### Silent Reissue
 Filevault-Reissue has the ability to silently reissue the recovery key if a administrator username and password is provided.
+
 Ex: `/path/to/filevault --admin-usernames=uniadmin,localadmin --admin-passwords=supers3cret,monkeybones123`
+
 The above example will try to authenticate to Filevault using both `uniadmin` and `localadmin` with both of the provided passwords `supers3cret` and `monkeybones123`. Keep in mind you may need to properly escape special characters.
 
 ## Quick Start
