@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>viewTitle</key>
+        <string>Acme Corporation</string>
+        <key>viewInstructions</key>
+        <string>The recovery key stored on our management servers is incorrect and could lead to possible data loss. Please enter the credentials you use to unlock your computer after a reboot.</string>
+        <!--Change this to a logo of your company on the endpoint system-->
+        <!--<key>viewLogoPath</key>
+        <string></string>-->
+        <!--<key>infoURL</key>
+        <string></string>-->
+        <key>supressRecoveryKey</key>
+        <false />
+        <key>usernamePlaceholder</key>
+        <string>japple</string>
+        <key>passwordPlaceholder</key>
+        <string>P@S$\/\/0rcI</string>
+        <key>moreInformationText</key>
+        <string>More Info? Right....</string>
+    </dict>
+</plist>
