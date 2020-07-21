@@ -54,12 +54,13 @@
                                 <string>Acme Corporation</string>
                                 <key>viewInstructions</key>
                                 <string>The recovery key stored on our management servers is incorrect and could lead to possible data loss. Please enter the credentials you use to unlock your computer after a reboot.</string>
-                                <key>viewLogoPath</key>
-                                <string>/Users/tmorga212/Documents/github projects/Filevault-Reissue/FileVaultIcon.png</string>
-                                <key>infoURL</key>
-                                <string>https://google.com</string>
+                                <!--Change this to a logo of your company on the endpoint system-->
+                                <!--<key>viewLogoPath</key>
+                                <string></string>-->
+                                <!--<key>infoURL</key>
+                                <string></string>-->
                                 <key>supressRecoveryKey</key>
-                                <string></string>
+                                <false />
                                 <key>usernamePlaceholder</key>
                                 <string>japple</string>
                                 <key>passwordPlaceholder</key>
