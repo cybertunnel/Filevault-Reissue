@@ -1,5 +1,4 @@
-![Swift 5.0](https://img.shields.io/static/v1.svg?label=Swift&message=5.0&color=green&logo=swift)
-![macOS 10.12](https://img.shields.io/static/v1.svg?label=macOS&message=10.12&color=green&logo=apple)
+![Swift 5.0](https://img.shields.io/static/v1.svg?label=Swift&message=4.0&color=green&logo=swift)
 ![macOS 10.13](https://img.shields.io/static/v1.svg?label=macOS&message=10.13&color=green&logo=apple)
 ![macOS 10.14](https://img.shields.io/static/v1.svg?label=macOS&message=10.14&color=green&logo=apple)
 ![macOS 10.15](https://img.shields.io/static/v1.svg?label=macOS&message=10.15&color=green&logo=apple)
@@ -10,13 +9,20 @@
 ![Current Filevault-Reissue Version](https://img.shields.io/static/v1.svg?label=version&message=1.0&color=lightgrey)
 
 # Filevault-Reissue
-This application prompts end users for username and password to automatically reissue a recovery key.
+Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Apple's Filevault recovery key.
+- Fully configurable using Preferences and Configuration Profiles
+- Sleek and responsive UI and that is fully brandable
+- Attempts to auto reissue using provided usernames and passwords
 
 ## In Action
-![Filevault-Reissue Running](https://user-images.githubusercontent.com/23121750/88068216-e6921b80-cb3d-11ea-84ba-a22e05f1b924.png)
 
-### User Prompt
-Filevault-Reissue will prompt the user for their username and password to then attempt to reissue the recovery key. This whole window can be branded, and a more info window can be configured to better allow people to validate where the prompt came from.
+### Prompt User Sees
+![Filevault Reissue Prompt](https://user-images.githubusercontent.com/23121750/75719634-129e2480-5ca3-11ea-9f48-3537c0c1a6e2.png)
+
+### More Information Dialog
+![Filevault Reissue Info Dialog](https://user-images.githubusercontent.com/23121750/75719779-5a24b080-5ca3-11ea-9d8f-e791a31fafa8.png)
+
+![Filevault Reissue Key Display](https://user-images.githubusercontent.com/23121750/75719867-893b2200-5ca3-11ea-863c-b079a629cb8b.png)
 
 ### Silent Reissue
 Filevault-Reissue has the ability to silently reissue the recovery key if a administrator username and password is provided.
@@ -24,7 +30,29 @@ Ex: `/path/to/filevault --admin-usernames=uniadmin,localadmin --admin-passwords=
 The above example will try to authenticate to Filevault using both `uniadmin` and `localadmin` with both of the provided passwords `supers3cret` and `monkeybones123`. Keep in mind you may need to properly escape special characters.
 
 ## Quick Start
-The best way to start is the [Kickstart Guide](https://github.com/cybertunnel/Filevault-Reissue/wiki)
+
+1. Download latest version from the Releases
+    - We only have Betas right now
+2. Sign & Notarize the app for best results.
+3. Configure preferences for the following keys:
+
+| Key Name | Description | Type | Example |
+| -------- | :---------: | :--: | :------ |
+| viewTitle | This is the text displayed to the end user, usually set to the company's name | String | Acme Corporation |
+| viewInstructions | This is the text displayed to the end user, usually a blurb around why this is occuring and why they should care | String | Our management server does not have a valid recovery key for this device. Please enter the username and password you use to unlock this machine after your system reboots. |
+| viewLogoPath | This is the logo that is displayed to the end user. Usually the company logo. | String | /var/tmp/companyLogo.png |
+| supressRecoveryKey | This will prevent the user from seeing the new recovery key when issued. | True / False | False |
+| usernamePlaceholder | This is what will hold the place of the username field. Usually input a generic username that matches your scheme. | String | johnsmith |
+| passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\\/\\/0rcl |
+| moreInformationText | This is the text a user will be presented with if they click on the "More Information" button on the window | String | Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking. |
+
+4. Edit `postinstall` in `installer/scripts/` with your administrative accounts and passwords.
+    - `--admin-usernames` should look like `--admin-usernames="ladmin,itadmin,john"`
+    - `--admin-passwords` should look like `--admin-passwords="SuperMonkey123","Password"`
+5. Run the `build.sh` script in `installer/` to build the package
+6. Sign the package
+7. Deploy
+8. Drink coffee and watch results
 
 ## Release History
 The release history is available [here](https://github.com/cybertunnel/Filevault-Reissue/blob/master/CHANGELOG.md).
@@ -36,18 +64,3 @@ This project does not have a dedicated channel on the [MacAdmins Slack](https://
 I [cybertunnel](https://github.com/cybertunnel) have been working on this project for the company I currently work for. I have spent these past few months making it more customizable and stable for general use.
 
 Please feel free to fork and contribute.
-
-# Preferences
-Filevault-Reissue uses the below keys in the preferences file. These keys are recommended for best results.
-`viewTitle`
-`viewInstructions`
-`viewLogoPath`
-`infoURL`
-`supressRecoveryKey`
-`usernamePlaceholder`
-`passwordPlaceholder`
-`moreInformationText`
-
-# Arguments
-`--admin-usernames=`
-`--admin-passwords=`
