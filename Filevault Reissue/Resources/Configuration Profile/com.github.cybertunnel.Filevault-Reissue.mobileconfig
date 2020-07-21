@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1">
+    <dict>
+        <key>PayloadUUID</key>
+        <string>D867F962-9598-4FD3-B5A4-CEEC9353D965</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadOrganization</key>
+        <string>Acme Corporation</string>
+        <key>PayloadIdentifier</key>
+        <string>D867F962-9598-4FD3-B5A4-CEEC9353D965</string>
+        <key>PayloadDisplayName</key>
+        <string>Filevault-Reissue Configuration</string>
+        <key>PayloadDescription</key>
+        <string/>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadEnabled</key>
+        <true/>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadUUID</key>
+                <string>F3F5CA75-ED80-43BF-8B47-C14C26DADC41</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadOrganization</key>
+                <string>Acme Corporation</string>
+                <key>PayloadIdentifier</key>
+                <string>F3F5CA75-ED80-43BF-8B47-C14C26DADC41</string>
+                <key>PayloadDisplayName</key>
+                <string>Custom</string>
+                <key>PayloadDescription</key>
+                <string/>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.github.cybertunnel.Filevault-Reissue</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                            <key>mcx_preference_settings</key>
+                            <dict>
+                                <key>viewTitle</key>
+                                <string>Acme Corporation</string>
+                                <key>viewInstructions</key>
+                                <string>The recovery key stored on our management servers is incorrect and could lead to possible data loss. Please enter the credentials you use to unlock your computer after a reboot.</string>
+                                <key>viewLogoPath</key>
+                                <string>/Users/tmorga212/Documents/github projects/Filevault-Reissue/FileVaultIcon.png</string>
+                                <key>infoURL</key>
+                                <string>https://google.com</string>
+                                <key>supressRecoveryKey</key>
+                                <string></string>
+                                <key>usernamePlaceholder</key>
+                                <string>japple</string>
+                                <key>passwordPlaceholder</key>
+                                <string>P@S$\/\/0rcI</string>
+                                <key>moreInformationText</key>
+                                <string>More Info? Right....</string>
+                            </dict>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
