@@ -97,7 +97,7 @@ class ViewController: NSViewController {
                     // Successful, shows user the new recovery key
                     
                     DispatchQueue.main.async {
-                        if !Preferences.sharedInstance.supressRecoveryKey {
+                        if !Preferences.sharedInstance.suppressRecoveryKey {
                             Log.write("Successfully reissued recovery key using provided credentials, providing the user with the new recovery key.", level: .info, category: .view)
                             let alert = NSAlert()
                                 alert.alertStyle = .informational
