@@ -37,9 +37,9 @@ class Preferences {
         }
     }
     
-    internal var supressRecoveryKey: Bool {
+    internal var suppressRecoveryKey: Bool {
         get {
-            return self.userDefaults.bool(forKey: "supressRecoveryKey")
+            return self.userDefaults.bool(forKey: "suppressRecoveryKey")
         }
     }
     
