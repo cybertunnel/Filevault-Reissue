@@ -6,7 +6,7 @@
 ![macOS Dark Mode](https://img.shields.io/static/v1.svg?label=Dark%20Mode&message=enabled&color=green&logo=apple)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![Current Filevault-Reissue Version](https://img.shields.io/static/v1.svg?label=version&message=1.1&color=lightgrey)
+![Current Filevault-Reissue Version](https://img.shields.io/static/v1.svg?label=version&message=1.2&color=lightgrey)
 
 # Filevault-Reissue
 Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Apple's Filevault recovery key.
