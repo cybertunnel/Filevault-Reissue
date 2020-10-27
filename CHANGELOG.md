@@ -1,3 +1,9 @@
+# 1.2
+
+- Added new config key `successAlert`: If `suppressRecoveryKey` is true, you can set this to show an alert after the key is rotated witout the key being shown
+- Added new config key `successKeyMessage`: If the `successAlert` key is set, you can customize the success message
+- Created JSON schema manifest for use with Jamf deployments
+
 # 1.1
 
 - Fixed typo in preferences key `supress` to `suppress`

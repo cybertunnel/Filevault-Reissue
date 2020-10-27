@@ -43,7 +43,9 @@ The above example will try to authenticate to Filevault using both `uniadmin` an
 | viewTitle | This is the text displayed to the end user, usually set to the company's name | String | Acme Corporation |
 | viewInstructions | This is the text displayed to the end user, usually a blurb around why this is occuring and why they should care | String | Our management server does not have a valid recovery key for this device. Please enter the username and password you use to unlock this machine after your system reboots. |
 | viewLogoPath | This is the logo that is displayed to the end user. Usually the company logo. | String | /var/tmp/companyLogo.png |
-| supressRecoveryKey | This will prevent the user from seeing the new recovery key when issued. | True / False | False |
+| suppressRecoveryKey | This will prevent the user from seeing the new recovery key when issued. | True / False | False |
+| successAlert | If `suppressRecoveryKey` is true, you can set this to show an alert after the key is rotated witout it being shown. By default, no alert is shown and the app will quit. | Truse / False | True |
+| successKeyMessage | If the `successAlert` key is set, you can customize the success message. By default, the message is "Successfully reissued the recovery key on this machine." | String | Your key has been reissued! | 
 | usernamePlaceholder | This is what will hold the place of the username field. Usually input a generic username that matches your scheme. | String | johnsmith |
 | passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\\/\\/0rcl |
 | moreInformationText | This is the text a user will be presented with if they click on the "More Information" button on the window | String | Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking. |
