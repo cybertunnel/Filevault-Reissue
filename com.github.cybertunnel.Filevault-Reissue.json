@@ -1,0 +1,114 @@
+{
+	"title": "com.github.cybertunnel.Filevault-Reissue",
+	"description": "",
+	"properties": {
+        "viewTitle": {
+            "title": "viewTitle",
+            "description": "This is the text displayed to the end user, usually set to the company's name",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "viewInstructions": {
+            "title": "viewInstructions",
+            "description": "This is the text displayed to the end user, usually a blurb around why this is occuring and why they should care",
+            "property_order": 25,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "viewLogoPath": {
+            "title": "viewLogoPath",
+            "description": "This is the logo that is displayed to the end user. Usually the company logo.",
+            "property_order": 30,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },        
+        "moreInformationText": {
+            "title": "moreInformationText",
+            "description": "This is the text a user will be presented with if they click on the 'More Information' button on the window",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "suppressRecoveryKey": {
+            "title": "suppressRecoveryKey",
+            "description": "This will prevent the user from seeing the new recovery key when issued.",
+            "property_order": 40,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "successAlert": {
+            "title": "successAlert",
+            "description": "If 'suppressRecoveryKey' is enabled, you can set this to show an alert after the key is rotated. By default, no alert is shown and the app will just quit.",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "successKeyMessage": {
+            "title": "successKeyMessage",
+            "description": "If the ‘successAlert’ is enabled, you can customize the success message.",
+            "property_order": 35,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "passwordPlaceholder": {
+            "title": "passwordPlaceholder",
+            "description": "This is what will hold the place of the password field. Feel free to be creative according to your company policy",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "usernamePlaceholder": {
+            "title": "usernamePlaceholder",
+            "description": "This is what will hold the place of the username field. Usually input a generic username that matches your scheme.",
+            "property_order": 45,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        }
+	}
+}

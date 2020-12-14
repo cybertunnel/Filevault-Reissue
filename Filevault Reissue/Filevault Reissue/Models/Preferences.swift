@@ -43,6 +43,18 @@ class Preferences {
         }
     }
     
+    internal var successAlert: Bool {
+        get {
+            return self.userDefaults.bool(forKey: "successAlert")
+        }
+    }
+    
+    internal var successKeyMessage: String? {
+        get {
+            return self.userDefaults.string(forKey: "successKeyMessage")
+        }
+    }
+    
     internal var usernamePlaceholder: String? {
         get {
             return self.userDefaults.string(forKey: "usernamePlaceholder")

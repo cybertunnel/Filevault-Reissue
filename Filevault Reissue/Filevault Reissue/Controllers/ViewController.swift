@@ -94,10 +94,11 @@ class ViewController: NSViewController {
                 self.running = false
                 
                 if results.successful {
-                    // Successful, shows user the new recovery key
+                    // Successful, do we show the recovery key or not?
                     
                     DispatchQueue.main.async {
                         if !Preferences.sharedInstance.suppressRecoveryKey {
+                            // If suppressRecoveryKey is not set show the recovery key and a message.
                             Log.write("Successfully reissued recovery key using provided credentials, providing the user with the new recovery key.", level: .info, category: .view)
                             let alert = NSAlert()
                                 alert.alertStyle = .informational
@@ -112,9 +113,33 @@ class ViewController: NSViewController {
                             }
                         }
                         else {
-                            Log.write("Successfully reissued recovery key using provided credentials, user prompt with the new key is supressed.", level: .info, category: .view)
-                            self.view.window?.close()
-                            NSApp.terminate(self)
+                        //If suppressRecoveryKey is true...
+                            if !Preferences.sharedInstance.successAlert {
+                                // NEW KEY: If suppress recovery key is selected, you can set this to show an alert after the key is rotated. By default, no alert is shown and the app will just quit.
+                                Log.write("Successfully reissued recovery key using provided credentials, user prompt with the new key is supressed, silent close.", level: .info, category: .view)
+                                self.view.window?.close()
+                                NSApp.terminate(self)
+                            }
+                            else {
+                                Log.write("Successfully reissued recovery key using provided credentials, user prompt with the new key is supressed but successful message shown.", level: .info, category: .view)
+                                let alert = NSAlert()
+                                    alert.alertStyle = .informational
+                                    alert.icon = NSImage.init(named: NSImage.menuOnStateTemplateName)
+                                    alert.messageText = "Successfully Reissued Recovery Key"
+                                    if (Preferences.sharedInstance.successKeyMessage == nil) {
+                                        // NEW KEY: If the ‘successKeyMessage’ key is set, you can customize the success message.
+                                        Log.write("No successKeyMessage set, using default message", level: .info, category: .view)
+                                        alert.informativeText = "Successfully reissued the recovery key on this machine.\nPlease hit OK to close."
+                                    }
+                                    else {
+                                        alert.informativeText = "\(String(describing: Preferences.sharedInstance.successKeyMessage ?? ""))"
+                                    }
+                                    alert.beginSheetModal(for: self.view.window!) { _ in
+                                        Log.write("User has closed the recovery key window.", level: .info, category: .view)
+                                        self.view.window?.close()
+                                        NSApp.terminate(self)
+                                    }
+                            }
                         }
                     }
                 }
