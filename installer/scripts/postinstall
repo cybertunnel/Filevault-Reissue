@@ -1,11 +1,13 @@
 #!/bin/bash
 
+appPath = "/private/tmp/com.github.cybertunnel.filevault-reissue.plist"
+
 # Ensure the plist has the proper permissions
-chown root:wheel /private/tmp/com.github.cybertunnel.filevault-reissue.plist
-chmod 644 /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+chown root:wheel "${appPath}"
+chmod 644 "${appPath}"
 
 # Unload to reset the RunAtLoad setting
-/bin/launchctl unload /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+/bin/launchctl unload "${appPath}"
 
 # Launching the app in root context
-/bin/launchctl load /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+/bin/launchctl load "${appPath}"
