@@ -1,4 +1,11 @@
 #!/bin/bash
-app="/var/tmp/Filevault Reissue.app/Contents/MacOS/Filevault Reissue"
-"$app" --admin-username="ladmin,itadmin,john" --admin-passwords="SuperMonkey123" || exit 1
-exit 0
+
+# Ensure the plist has the proper permissions
+chown root:wheel /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+chmod 644 /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+
+# Unload to reset the RunAtLoad setting
+/bin/launchctl unload /private/tmp/com.github.cybertunnel.filevault-reissue.plist
+
+# Launching the app in root context
+/bin/launchctl load /private/tmp/com.github.cybertunnel.filevault-reissue.plist
