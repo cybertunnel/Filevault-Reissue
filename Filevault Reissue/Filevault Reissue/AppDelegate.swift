@@ -8,7 +8,7 @@
 
 import Cocoa
 
-@NSApplicationMain
+//@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     private var storyboard: NSStoryboard {
@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        print("Done")
         // Insert code here to initialize your application
         
         //  Check to see if Filevault is enabled
