@@ -18,7 +18,45 @@
 		81A5E1FB24096CB600FF6E07 /* Filevault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FA24096CB600FF6E07 /* Filevault.swift */; };
 		81A5E1FD2409B37200FF6E07 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FC2409B37200FF6E07 /* MainWindow.swift */; };
 		81A5E1FF2409B59000FF6E07 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FE2409B59000FF6E07 /* Preferences.swift */; };
+		81E5D09C27C52521007B9A9A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D09B27C52521007B9A9A /* main.swift */; };
+		81E5D0A127C52556007B9A9A /* Helper Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A027C52556007B9A9A /* Helper Protocol.swift */; };
+		81E5D0A327C52572007B9A9A /* RemoteApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A227C52572007B9A9A /* RemoteApplicationProtocol.swift */; };
+		81E5D0A527C52584007B9A9A /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A427C52584007B9A9A /* HelperConstants.swift */; };
+		81E5D0A727C52598007B9A9A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A627C52598007B9A9A /* Helper.swift */; };
+		81E5D0AA27C52607007B9A9A /* HelperExecutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A927C52607007B9A9A /* HelperExecutionService.swift */; };
+		81E5D0AB27C52623007B9A9A /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A427C52584007B9A9A /* HelperConstants.swift */; };
+		81E5D0AC27C5262A007B9A9A /* RemoteApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A227C52572007B9A9A /* RemoteApplicationProtocol.swift */; };
+		81E5D0AD27C52631007B9A9A /* Helper Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0A027C52556007B9A9A /* Helper Protocol.swift */; };
+		81E5D0B027C526C0007B9A9A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0AF27C526C0007B9A9A /* AppConstants.swift */; };
+		81E5D0B127C526C0007B9A9A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0AF27C526C0007B9A9A /* AppConstants.swift */; };
+		81E5D0B327C526E0007B9A9A /* ExecutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0B227C526E0007B9A9A /* ExecutionService.swift */; };
+		81E5D0B627C526FA007B9A9A /* HelperRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0B527C526FA007B9A9A /* HelperRemote.swift */; };
+		81E5D0B927C5273A007B9A9A /* FilevaultReissueError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0B827C5273A007B9A9A /* FilevaultReissueError.swift */; };
+		81E5D0BA27C5273A007B9A9A /* FilevaultReissueError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D0B827C5273A007B9A9A /* FilevaultReissueError.swift */; };
+		81E5D0BC27C52E27007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81E5D09927C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		81E5D09727C52521007B9A9A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		81E5D0BB27C52DFF007B9A9A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "Filevault Reissue.app/Contents/Library/LaunchServices";
+			dstSubfolderSpec = 16;
+			files = (
+				81E5D0BC27C52E27007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		816AF0072408624900A4C85E /* Filevault Reissue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Filevault Reissue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,10 +71,30 @@
 		81A5E1FA24096CB600FF6E07 /* Filevault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filevault.swift; sourceTree = "<group>"; };
 		81A5E1FC2409B37200FF6E07 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		81A5E1FE2409B59000FF6E07 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		81E5D09927C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.github.cybertunnel.Filevault-Reissue.helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E5D09B27C52521007B9A9A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		81E5D0A027C52556007B9A9A /* Helper Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Protocol.swift"; sourceTree = "<group>"; };
+		81E5D0A227C52572007B9A9A /* RemoteApplicationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteApplicationProtocol.swift; sourceTree = "<group>"; };
+		81E5D0A427C52584007B9A9A /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
+		81E5D0A627C52598007B9A9A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		81E5D0A827C525B3007B9A9A /* Launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
+		81E5D0A927C52607007B9A9A /* HelperExecutionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExecutionService.swift; sourceTree = "<group>"; };
+		81E5D0AE27C5264A007B9A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81E5D0AF27C526C0007B9A9A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		81E5D0B227C526E0007B9A9A /* ExecutionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionService.swift; sourceTree = "<group>"; };
+		81E5D0B527C526FA007B9A9A /* HelperRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperRemote.swift; sourceTree = "<group>"; };
+		81E5D0B827C5273A007B9A9A /* FilevaultReissueError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilevaultReissueError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		816AF0042408624900A4C85E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E5D09627C52521007B9A9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				816AF0092408624900A4C85E /* Filevault Reissue */,
+				81E5D09A27C52521007B9A9A /* helper */,
 				816AF0082408624900A4C85E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				816AF0072408624900A4C85E /* Filevault Reissue.app */,
+				81E5D09927C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +130,10 @@
 				816AF01D2408629200A4C85E /* Controllers */,
 				816AF01C2408628D00A4C85E /* Resources */,
 				816AF01A2408627900A4C85E /* Models */,
+				81E5D0AF27C526C0007B9A9A /* AppConstants.swift */,
+				81E5D0B227C526E0007B9A9A /* ExecutionService.swift */,
+				81E5D0B527C526FA007B9A9A /* HelperRemote.swift */,
+				81E5D0B827C5273A007B9A9A /* FilevaultReissueError.swift */,
 			);
 			path = "Filevault Reissue";
 			sourceTree = "<group>";
@@ -112,6 +176,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		81E5D09A27C52521007B9A9A /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				81E5D09B27C52521007B9A9A /* main.swift */,
+				81E5D0AE27C5264A007B9A9A /* Info.plist */,
+				81E5D0A027C52556007B9A9A /* Helper Protocol.swift */,
+				81E5D0A227C52572007B9A9A /* RemoteApplicationProtocol.swift */,
+				81E5D0A427C52584007B9A9A /* HelperConstants.swift */,
+				81E5D0A627C52598007B9A9A /* Helper.swift */,
+				81E5D0A827C525B3007B9A9A /* Launchd.plist */,
+				81E5D0A927C52607007B9A9A /* HelperExecutionService.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +201,7 @@
 				816AF0032408624900A4C85E /* Sources */,
 				816AF0042408624900A4C85E /* Frameworks */,
 				816AF0052408624900A4C85E /* Resources */,
+				81E5D0BB27C52DFF007B9A9A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -132,18 +212,38 @@
 			productReference = 816AF0072408624900A4C85E /* Filevault Reissue.app */;
 			productType = "com.apple.product-type.application";
 		};
+		81E5D09827C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81E5D09D27C52521007B9A9A /* Build configuration list for PBXNativeTarget "com.github.cybertunnel.Filevault-Reissue.helper" */;
+			buildPhases = (
+				81E5D09527C52521007B9A9A /* Sources */,
+				81E5D09627C52521007B9A9A /* Frameworks */,
+				81E5D09727C52521007B9A9A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "com.github.cybertunnel.Filevault-Reissue.helper";
+			productName = helper;
+			productReference = 81E5D09927C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		816AEFFF2408624900A4C85E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1200;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Tyler Morgan";
 				TargetAttributes = {
 					816AF0062408624900A4C85E = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					81E5D09827C52521007B9A9A = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -161,6 +261,7 @@
 			projectRoot = "";
 			targets = (
 				816AF0062408624900A4C85E /* Filevault Reissue */,
+				81E5D09827C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */,
 			);
 		};
 /* End PBXProject section */
@@ -184,13 +285,35 @@
 			files = (
 				81A5E1FB24096CB600FF6E07 /* Filevault.swift in Sources */,
 				816AF00D2408624900A4C85E /* ViewController.swift in Sources */,
+				81E5D0B327C526E0007B9A9A /* ExecutionService.swift in Sources */,
 				816AF00B2408624900A4C85E /* AppDelegate.swift in Sources */,
 				81A5E1F724096C4C00FF6E07 /* Log.swift in Sources */,
 				81A5E1F924096C7600FF6E07 /* User.swift in Sources */,
+				81E5D0AB27C52623007B9A9A /* HelperConstants.swift in Sources */,
+				81E5D0AD27C52631007B9A9A /* Helper Protocol.swift in Sources */,
+				81E5D0B627C526FA007B9A9A /* HelperRemote.swift in Sources */,
 				816AF020240863AF00A4C85E /* ArgParser.swift in Sources */,
+				81E5D0AC27C5262A007B9A9A /* RemoteApplicationProtocol.swift in Sources */,
 				81A5E1FF2409B59000FF6E07 /* Preferences.swift in Sources */,
+				81E5D0B927C5273A007B9A9A /* FilevaultReissueError.swift in Sources */,
+				81E5D0B027C526C0007B9A9A /* AppConstants.swift in Sources */,
 				81A5E1FD2409B37200FF6E07 /* MainWindow.swift in Sources */,
 				816E66A1240DA14400481D93 /* InformationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E5D09527C52521007B9A9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81E5D0A127C52556007B9A9A /* Helper Protocol.swift in Sources */,
+				81E5D0A527C52584007B9A9A /* HelperConstants.swift in Sources */,
+				81E5D0AA27C52607007B9A9A /* HelperExecutionService.swift in Sources */,
+				81E5D0A727C52598007B9A9A /* Helper.swift in Sources */,
+				81E5D0BA27C5273A007B9A9A /* FilevaultReissueError.swift in Sources */,
+				81E5D0B127C526C0007B9A9A /* AppConstants.swift in Sources */,
+				81E5D09C27C52521007B9A9A /* main.swift in Sources */,
+				81E5D0A327C52572007B9A9A /* RemoteApplicationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -332,15 +455,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4PBF9JSJF3;
+				DEVELOPMENT_TEAM = 55JHL22EU7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Filevault Reissue/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.cybertunnel.Filevault-Reissue";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -356,16 +479,52 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4PBF9JSJF3;
+				DEVELOPMENT_TEAM = 55JHL22EU7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Filevault Reissue/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.cybertunnel.Filevault-Reissue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		81E5D09E27C52521007B9A9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55JHL22EU7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/helper/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.cybertunnel.Filevault-Reissue.helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		81E5D09F27C52521007B9A9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55JHL22EU7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/helper/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.cybertunnel.Filevault-Reissue.helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -388,6 +547,15 @@
 			buildConfigurations = (
 				816AF0182408624A00A4C85E /* Debug */,
 				816AF0192408624A00A4C85E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81E5D09D27C52521007B9A9A /* Build configuration list for PBXNativeTarget "com.github.cybertunnel.Filevault-Reissue.helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81E5D09E27C52521007B9A9A /* Debug */,
+				81E5D09F27C52521007B9A9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
