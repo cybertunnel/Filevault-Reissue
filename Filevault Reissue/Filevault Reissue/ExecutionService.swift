@@ -57,9 +57,12 @@ struct ExecutionService {
      - Throws `FilevaultReissueError` if there is an issue with the helper
      - Returns The new recovery key
      */
-    static func reissueRecoveryKey(_ user: User) -> String {
+    static func reissueRecoveryKey(_ user: User) async throws-> String {
+        let remote = try HelperRemote().getRemote()
+        let result = try await remote.reissueRecoveryKey(username: user.username, password: user.password)
+        
+        return result
         
         
-        return ""
     }
 }

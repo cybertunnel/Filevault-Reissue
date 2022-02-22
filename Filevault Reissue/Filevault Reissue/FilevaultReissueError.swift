@@ -15,7 +15,7 @@ enum FilevaultReissueError: LocalizedError {
     case helperInstallation(String)
     case helperConnection(String)
     
-    var errorDescription: String? {
+    var localizedDescription: String? {
         switch self {
         case .UserIsNotEnabled(let user): return "The user, \(user) is not enabled for filevault, please try a different user."
         case .FilevaultNotEnabled: return "Filevault is not enabled, unable to reissue recovery key."

@@ -13,130 +13,110 @@ class HelperExecutionService {
     
     static let logger = Logger(subsystem: AppConstants.bundleIdentifier, category: "Helper Execution Service")
     
-    /**
-     Copy the provided folder to the provided destination
-     
-     - Parameters:
-        - src: The folder being copied as `URL`
-        - dest: The place the folder is being copied to as `URL`
-        - completion: What to do when data or errors are recieved as `(String?, Error?) -> Void`
-     */
-    static func copyFolder(from srcFolder: URL, to dstFolder: URL) async throws {
-        if FileManager.default.fileExists(atPath: dstFolder.path) {
-            logger.error("File \(dstFolder.path.debugDescription) already exists.")
-            throw MigrationError.fileAlreadyExists
-        } else {
-            if FileManager.default.fileExists(atPath: srcFolder.path) {
-                logger.debug("File/folder at \(srcFolder.path.debugDescription) is confirmed to exist, proceeding.")
-                do {
-                    try FileManager.default.copyItem(at: srcFolder, to: dstFolder)
-                    return
-                } catch {
-                    logger.error("Error occurred while attempting to copy folder contents over. Error: \(error.localizedDescription, privacy: .public)")
-                    throw error
-                }
-            } else {
-                logger.error("Source file/folder at \(srcFolder.path.debugDescription, privacy: .public) does not exist.")
-                throw MigrationError.fileDoesNotExist
-            }
-        }
-    }
-    
-    /**
-     Start the created launch daemon
-     - Parameters:
-        - completion: The handler for when this function completes as `(Result<String, Error>) -> Void`
-     */
-    static func startLaunchDaemon() async throws {
-        let filePath = URL(fileURLWithPath: "/Library/LaunchDaemons/com.github.cybertunnel.Enterprise-Migration-Assistant.migratorTool.plist")
-        if FileManager.default.fileExists(atPath: filePath.path) {
-            let process = Process()
-            process.executableURL = URL(fileURLWithPath: "/bin/launchctl")
-            process.arguments = ["load", "-w", filePath.path]
-
-            let outputPipe = Pipe()
-            process.standardOutput = outputPipe
-            process.standardError = outputPipe
-            do {
-                try process.run()
-            } catch {
-                return
-            }
-            process.waitUntilExit()
-            return
-        } else {
-            return
-        }
-    }
-    
-    /**
-     Create a launch daemon for the migrator tool at the provided path and arguments
-     - Parameters:
-        - path: The path of the migration tool as `String`
-        - oldUser: The user's old account name as `String`
-        - oldHome: The user's temporary migrated data folder path as `String`
-        - oldPass: The user's password on their old device as `String`
-        - user: The user that will be created as `String`
-     */
-    static func createLaunchDaemon(migratorToolPath path: String, withOldUser oldUser: String, withOldHome oldHome: String, withOldPass oldPass: String, forUser user: String) async throws {
-        let filePath = URL(fileURLWithPath: "/Library/LaunchDaemons/com.github.cybertunnel.Enterprise-Migration-Assistant.migratorTool.plist")
-        let contents = """
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-            <key>Label</key>
-            <string>com.github.cybertunnel.Enterprise-Migration-Assistant.migratorTool</string>
-            <key>ProgramArguments</key>
-            <array>
-                <string>\(path)</string>
-                <string>\(oldUser)</string>
-                <string>\(oldHome)</string>
-                <string>\(oldPass)</string>
-                <string>\(user)</string>
-            </array>
-            <key>RunAtLoad</key>
-            <true/>
-        </dict>
-        </plist>
-        """
+    static func isUserAdded(user: String) async -> Bool {
+        logger.info("Checking if \(user.debugDescription, privacy: .public) is enabled for Filevault.")
         
-        if FileManager.default.createFile(atPath: filePath.path, contents: contents.data(using: .utf8)) {
-            return
+        let process = Process()
+        process.launchPath = "/usr/bin/fdesetup"
+        process.arguments = ["list"]
+        
+        let stdOut = Pipe()
+        process.standardOutput = stdOut
+        
+        process.launch()
+        let data = stdOut.fileHandleForReading.readDataToEndOfFile()
+        let result = String(bytes: data, encoding: .utf8)
+        let users = result?.components(separatedBy: "\n").dropLast().map { $0.components(separatedBy: ",")[0] }
+        if users?.contains(user) ?? false {
+            return true
         }
         else {
-            // TODO: Add throwing
+            return false
         }
-        return
     }
     
-    /**
-     Create a migration user with the provided information using the provided credentials
-     
-     - Parameters:
-        - username: The username for the migration user as `String`. Default: `migrator`
-        - name: The full name of the migration user as `String`. Default: `Please Wait...`
-        - password: The password for the migration account as `String`. Default: `migrationisfun`
-        - adminUser: The username of the admin user being used to create this account as `String`
-        - adminPass: The password for the admin user being used to create this account as `String`
-        - completion: What to do when data or error is recieved as `(String?, Error?) -> Void`
-     */
-    static func makeMigratorUser(username: String, withName name: String, withPassword password: String, usingAdmin adminUser: String, withAdminPass adminPass: String) async throws {
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/usr/sbin/sysadminctl")
-        process.arguments = ["-addUser", username, "-fullName", name, "-password", password, "-admin", "-adminUser", adminUser, "-adminPassword", adminPass]
-
-        let outputPipe = Pipe()
-        process.standardOutput = outputPipe
-        process.standardError = outputPipe
-        try process.run()
-        process.waitUntilExit()
+    static func reissueRecoveryKey(username: String, password: String) async throws -> String {
+        logger.info("Attempting to reissue Filevault recovery key for user \(username, privacy: .public)")
         
-        if process.terminationStatus == 0 {
-            return
-        } else {
-            // TODO: Add throwing
+        if !(await isFilevaultEnabled()) {
+            logger.fault("Filevault is not enabled!")
+            throw FilevaultReissueError.FilevaultNotEnabled
         }
-        return
+        if !(await isUserAdded(user: username)) {
+            logger.fault("User \(username, privacy: .public) is not enabled for Filevault!")
+            throw FilevaultReissueError.UserIsNotEnabled(user: username)
+        }
+        let process = Process()
+        process.launchPath = "/usr/bin/fdesetup"
+        process.arguments = ["changerecovery", "-personal", "-user", "\(username)", "-inputplist"]
+        
+        let stdOut = Pipe()
+        process.standardOutput = stdOut
+        
+        let stdErr = Pipe()
+        process.standardError = stdErr
+        
+        let stdIn = Pipe()
+        process.standardInput = stdIn
+        
+        let string = """
+        <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                <plist version="1.0">
+                    <dict>
+                        <key>Username</key>
+                        <string>\(username)</string>
+                        <key>Password</key>
+                        <string>\(password)</string>
+                    </dict>
+                </plist>
+        """
+        
+        stdIn.fileHandleForWriting.write(string.data(using: .utf8)!)
+        stdIn.fileHandleForWriting.closeFile()
+        
+        process.launch()
+        
+        let data = stdOut.fileHandleForReading.readDataToEndOfFile()
+        let result = String(bytes: data, encoding: .utf8)
+        
+        let errData = stdErr.fileHandleForReading.readDataToEndOfFile()
+        let err = String(bytes: errData, encoding: .utf8)
+        
+        if result?.contains("New personal recovery key") ?? false {
+            logger.info("Successfully reissued recovery key.")
+            let key = result?.components(separatedBy: " = ")[1]
+            return key ?? ""
+        }
+        else if result == "" && err?.contains("Unable to unlock or authenticate to FileVault") ?? false {
+            logger.fault("Username and/or password provided are an invalid combination.")
+            throw FilevaultReissueError.ReissueUnsuccessful
+        }
+        
+        // Cover all cases, return false
+        throw FilevaultReissueError.ReissueUnsuccessful
     }
+    
+    static func isFilevaultEnabled() async -> Bool {
+        logger.info("Checking if Filevault is enabled.")
+        let process = Process()
+        process.launchPath = "/usr/bin/fdesetup"
+        process.arguments = ["status"]
+        
+        let stdOut = Pipe()
+        process.standardOutput = stdOut
+        
+        process.launch()
+        let data = stdOut.fileHandleForReading.readDataToEndOfFile()
+        let result = String(bytes: data, encoding: .utf8)
+        if result?.contains("FileVault is On") ?? false {
+            logger.info("Filevault is enabled.")
+            return true
+        }
+        else {
+            logger.info("Filevault is not enabled.")
+            return false
+        }
+    }
+    
 }

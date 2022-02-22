@@ -14,7 +14,7 @@ enum HelperConstants {
     static let helpersFolder = "/Library/PrivilegedHelperTools/"
     
     /// The helper domain
-    static let domain = "com.github.cybertunnel.Enterprise-Migration-Assistant.helper"
+    static let domain = "com.github.cybertunnel.Filevault-Reissue.helper"
     
     /// The helper's path
     static let helperPath = helpersFolder + domain

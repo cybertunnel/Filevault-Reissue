@@ -10,6 +10,11 @@ import Foundation
 
 class FilevaultController: ObservableObject {
     @Published var user: User
+    @Published var newKey: String?
+    @Published var showInfo: Bool = false
+    @Published var showSuccess: Bool = false
+    @Published var errorMsg: String? = nil
+    @Published var inProgress: Bool = false
     
     init(user: User? = nil) {
         guard let user = user else {
@@ -24,6 +29,28 @@ class FilevaultController: ObservableObject {
             self.init(user: user)
         } else {
             self.init()
+        }
+    }
+    
+    func reissueKey() {
+        DispatchQueue.main.async {
+            self.inProgress = true
+        }
+        Task.init {
+            do {
+                let recKey = try await ExecutionService.reissueRecoveryKey(self.user)
+                print(recKey)
+                DispatchQueue.main.async {
+                    self.newKey = recKey
+                    self.showSuccess.toggle()
+                    self.inProgress = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMsg = error.localizedDescription
+                    self.inProgress = false
+                }
+            }
         }
     }
 }

@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var fvController: FilevaultController
-    @State var showMoreInfo: Bool = false
-    @State var showSuccess: Bool = false
     var body: some View {
         VStack {
             Image(nsImage: NSImage(named: NSImage.applicationIconName)!)
@@ -26,30 +24,40 @@ struct ContentView: View {
                 .padding(5)
             HStack{
                 TextField("japple", text: self.$fvController.user.username)
+                    .disabled(self.fvController.inProgress)
                 SecureField("Password", text: self.$fvController.user.password)
+                    .disabled(self.fvController.inProgress)
             }
             .padding(10)
+            
+            if let msg = self.fvController.errorMsg {
+                Text(msg)
+                    .font(.callout)
+                    .foregroundColor(.red)
+                    
+            }
             
             Spacer()
             
             HStack {
                 Spacer()
                 Button("More Information") {
-                    self.showMoreInfo.toggle()
+                    self.fvController.showInfo.toggle()
                 }
-                .sheet(isPresented: self.$showMoreInfo) {
+                .sheet(isPresented: self.$fvController.showInfo) {
                     InformationView(text: "Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking.\n To learn more visit our IT portal: https://it.acme.com")
                     Button("Close") {
-                        self.showMoreInfo.toggle()
+                        self.fvController.showInfo.toggle()
                     }
                     .padding()
                 }
                 Button("Submit") {
-                    print("Username: \(self.fvController.user.username), Password: \(self.fvController.user.password)")
-                    self.showSuccess.toggle()
+                    self.fvController.reissueKey()
                 }
-                .sheet(isPresented: self.$showSuccess, onDismiss: {NSApp.terminate(self)}) {
-                    SuccessView(key: "xxxx-xxxx-xxxx-xxxx")
+                .keyboardShortcut(.return)
+                .disabled(self.fvController.inProgress)
+                .sheet(isPresented: self.$fvController.showSuccess, onDismiss: {NSApp.terminate(self)}) {
+                    SuccessView(key: self.$fvController.newKey.wrappedValue ?? "Not configured")
                         .padding()
                 }
                 Spacer()
@@ -65,5 +73,14 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .frame(width: 600, height: 450, alignment: .center)
             .environmentObject(vcController)
+        
+        let otherVCController = { () -> FilevaultController in
+            let controller = FilevaultController()
+            controller.errorMsg = "Example Error"
+            return controller
+        }()
+        ContentView()
+            .frame(width: 600, height: 450, alignment: .center)
+            .environmentObject(otherVCController)
     }
 }

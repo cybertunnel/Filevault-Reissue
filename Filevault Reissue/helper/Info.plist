@@ -5,7 +5,7 @@
 	<key>CFBundleExecutable</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.github.cybertunnel.Filevault-Reissue.helper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -16,7 +16,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>identifier "com.github.cybertunnel.Filevault-Reissue" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Tyler Morgan (SM8UP534NU)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier &quot;com.github.cybertunnel.Filevault-Reissue&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Apple Development: Tyler Morgan (SM8UP534NU)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</array>
 </dict>
 </plist>

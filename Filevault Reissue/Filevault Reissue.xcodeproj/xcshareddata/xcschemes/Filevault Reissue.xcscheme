@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Filevault Reissue.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "81E5D09827C52521007B9A9A"
+               BuildableName = "com.github.cybertunnel.Filevault-Reissue.helper"
+               BlueprintName = "com.github.cybertunnel.Filevault-Reissue.helper"
+               ReferencedContainer = "container:Filevault Reissue.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

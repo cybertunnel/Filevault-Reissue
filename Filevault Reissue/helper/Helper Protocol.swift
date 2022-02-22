@@ -12,5 +12,6 @@ import Foundation
 public protocol HelperProtocol {
     @objc func isFilevaultEnabled() async throws -> Bool
     @objc func isUserAdded(user: String) async throws -> Bool
-    @objc func reissueRecoveryKey() async throws -> String
+    @objc func reissueRecoveryKey(username: String, password: String) async throws -> String
+    @objc func version() async -> String
 }

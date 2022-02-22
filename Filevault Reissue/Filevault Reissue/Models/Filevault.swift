@@ -22,25 +22,7 @@ class Filevault {
     
     private func isUserAdded(_ user: String) -> Bool {
         
-        Log.write("Checking if user \(user) is activated for Filevault.", level: .info, category: .filevault)
-        
-        let process = Process()
-        process.launchPath = "/usr/bin/fdesetup"
-        process.arguments = ["list"]
-        
-        let stdOut = Pipe()
-        process.standardOutput = stdOut
-        
-        process.launch()
-        let data = stdOut.fileHandleForReading.readDataToEndOfFile()
-        let result = String(bytes: data, encoding: .utf8)
-        let users = result?.components(separatedBy: "\n").dropLast().map { $0.components(separatedBy: ",")[0] }
-        if users?.contains(user) ?? false {
-            return true
-        }
-        else {
-            return false
-        }
+        return false
     }
     
     internal func reissueRecoveryKey(user: String, password: String) throws -> ReissueResults {
