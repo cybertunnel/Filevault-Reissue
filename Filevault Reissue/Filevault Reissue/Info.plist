@@ -36,5 +36,10 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.github.cybertunnel.Filevault-Reissue.helper</key>
+		<string>identifier "com.github.cybertunnel.Filevault-Reissue.helper" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Tyler Morgan (SM8UP534NU)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+	</dict>
 </dict>
 </plist>
