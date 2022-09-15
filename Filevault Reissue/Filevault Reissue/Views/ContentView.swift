@@ -19,14 +19,16 @@ struct ContentView: View {
             Text("Filevault Recovery Key Reissue")
                 .font(.title2)
                 .padding(10)
-            Text(Preferences.sharedInstance.viewInstructions ?? "Out management server does not have a valid recovery key for this device. Please enter the username and password you use to unlock this machine after your system reboots.")
+            Text(Preferences.sharedInstance.viewInstructions ?? "Our management server does not have a valid recovery key for this device. Please enter the username and password you use to unlock this machine after your system reboots.")
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(5)
             HStack{
                 TextField("japple", text: self.$fvController.user.username)
                     .disabled(self.fvController.inProgress)
+                    .disableAutocorrection(true)
                 SecureField("Password", text: self.$fvController.user.password)
                     .disabled(self.fvController.inProgress)
+                    .disableAutocorrection(true)
             }
             .padding(10)
             
