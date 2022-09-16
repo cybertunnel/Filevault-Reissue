@@ -11,15 +11,32 @@ import SwiftUI
 @main
 struct Filevault_ReissueApp: App {
     
+    /// Detects if Filevault is enabled on the machine
     var fvEnabled: Void = {
-        if !Filevault.isFilevaultEnabled() {
-            Log.write("Filevault is not enabled on this device!", level: .error, category: .main)
-            exit(1)
+        let semaphore = DispatchSemaphore(value: 0)
+        var task = Task.init {
+            do {
+                let result = try await ExecutionService.isFilevaultEnabled()
+                
+                if !result {
+                    Log.write("Filevault is not enabled on this machine.", level: .error, category: .main)
+                    exit(1)
+                }
+                else {
+                    Log.write("Filevault is enabled on this machine, continuing", level: .info, category: .main)
+                    semaphore.signal()
+                }
+            } catch {
+                Log.write("Obtained an error of \(error.localizedDescription)", level: .error, category: .main)
+            }
         }
+        
+        semaphore.wait()
     }()
+    
+    /// Attempts to reissue the key silently
     var silentReissue:Void = {
         /// Attempt to reissue the recovery key using the provided username(s) and password(s) from the command line
-        let fv = Filevault()
         
         /// Get usernames from command line
         guard let users = ArgParser.getAdminUsernames() else {

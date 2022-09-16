@@ -11,11 +11,10 @@ import Foundation
 /**
  Parses the arguements provided this application.
  */
-
 class ArgParser {
     /**
      Parses the usernames from the arguments and provides them back.
-     - Returns: usernames as an array
+     - Returns: Usernames from the CLI returned as an Array
      */
     static func getAdminUsernames() -> Array <String>? {
         let args = ProcessInfo.processInfo.arguments
@@ -31,7 +30,7 @@ class ArgParser {
     
     /**
      Parses the passwords from the arguments and provides them back.
-     - Returns: passwords as an array
+     - Returns: Passwords from the CLI returned as an Array
      */
     static func getAdminPasswords() -> Array <String>? {
         let args = ProcessInfo.processInfo.arguments

@@ -23,8 +23,11 @@ class Log {
     static let appName = "com.github.cybertunnel.Filevault-Reissue"
     
     /**
-     Writes the provided information to the log.
+     Writes the provided string to the unified logging system.
      - Parameters:
+        - string: The text which will be written to the log output
+        - level: A `Log.Level` pre-defined level
+        - category: A `Log.Category` pre-defined category
      */
     static func write(_ string: String, level: Level, category: Category) -> Void {
         let log = OSLog(subsystem: appName, category: category.rawValue)

@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		816AF00B2408624900A4C85E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AF00A2408624900A4C85E /* AppDelegate.swift */; };
-		816AF00D2408624900A4C85E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AF00C2408624900A4C85E /* ViewController.swift */; };
 		816AF00F2408624A00A4C85E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 816AF00E2408624A00A4C85E /* Assets.xcassets */; };
 		816AF0122408624A00A4C85E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816AF0102408624A00A4C85E /* Main.storyboard */; };
 		816AF020240863AF00A4C85E /* ArgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AF01F240863AF00A4C85E /* ArgParser.swift */; };
-		816E66A1240DA14400481D93 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E66A0240DA14400481D93 /* InformationViewController.swift */; };
 		819D461C27C5303D00B04C97 /* Filevault_ReissueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D461B27C5303D00B04C97 /* Filevault_ReissueApp.swift */; };
 		819D461E27C5308600B04C97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D461D27C5308600B04C97 /* ContentView.swift */; };
 		819D463B27C53DC400B04C97 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D463A27C53DC400B04C97 /* InformationView.swift */; };
@@ -21,7 +18,6 @@
 		819D464027C557C300B04C97 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1F824096C7600FF6E07 /* User.swift */; };
 		81A5E1F724096C4C00FF6E07 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1F624096C4C00FF6E07 /* Log.swift */; };
 		81A5E1F924096C7600FF6E07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1F824096C7600FF6E07 /* User.swift */; };
-		81A5E1FB24096CB600FF6E07 /* Filevault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FA24096CB600FF6E07 /* Filevault.swift */; };
 		81A5E1FD2409B37200FF6E07 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FC2409B37200FF6E07 /* MainWindow.swift */; };
 		81A5E1FF2409B59000FF6E07 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E1FE2409B59000FF6E07 /* Preferences.swift */; };
 		81E5D09C27C52521007B9A9A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5D09B27C52521007B9A9A /* main.swift */; };
@@ -66,12 +62,9 @@
 
 /* Begin PBXFileReference section */
 		816AF0072408624900A4C85E /* Filevault Reissue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Filevault Reissue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		816AF00A2408624900A4C85E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		816AF00C2408624900A4C85E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		816AF00E2408624A00A4C85E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		816AF0112408624A00A4C85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		816AF01F240863AF00A4C85E /* ArgParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParser.swift; sourceTree = "<group>"; };
-		816E66A0240DA14400481D93 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		819D461B27C5303D00B04C97 /* Filevault_ReissueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filevault_ReissueApp.swift; sourceTree = "<group>"; };
 		819D461D27C5308600B04C97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		819D463A27C53DC400B04C97 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
@@ -79,7 +72,6 @@
 		819D463E27C5433900B04C97 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		81A5E1F624096C4C00FF6E07 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		81A5E1F824096C7600FF6E07 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		81A5E1FA24096CB600FF6E07 /* Filevault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filevault.swift; sourceTree = "<group>"; };
 		81A5E1FC2409B37200FF6E07 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		81A5E1FE2409B59000FF6E07 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		81E5D09927C52521007B9A9A /* com.github.cybertunnel.Filevault-Reissue.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.github.cybertunnel.Filevault-Reissue.helper"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +128,6 @@
 		816AF0092408624900A4C85E /* Filevault Reissue */ = {
 			isa = PBXGroup;
 			children = (
-				816AF00A2408624900A4C85E /* AppDelegate.swift */,
 				819D461B27C5303D00B04C97 /* Filevault_ReissueApp.swift */,
 				816AF01E2408629D00A4C85E /* Views */,
 				816AF01D2408629200A4C85E /* Controllers */,
@@ -156,7 +147,6 @@
 				816AF01F240863AF00A4C85E /* ArgParser.swift */,
 				81A5E1F624096C4C00FF6E07 /* Log.swift */,
 				81A5E1F824096C7600FF6E07 /* User.swift */,
-				81A5E1FA24096CB600FF6E07 /* Filevault.swift */,
 				81A5E1FE2409B59000FF6E07 /* Preferences.swift */,
 			);
 			path = Models;
@@ -174,8 +164,6 @@
 		816AF01D2408629200A4C85E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				816AF00C2408624900A4C85E /* ViewController.swift */,
-				816E66A0240DA14400481D93 /* InformationViewController.swift */,
 				819D463C27C53F4900B04C97 /* FilevaultController.swift */,
 			);
 			path = Controllers;
@@ -299,12 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81A5E1FB24096CB600FF6E07 /* Filevault.swift in Sources */,
 				819D463D27C53F4900B04C97 /* FilevaultController.swift in Sources */,
 				819D461E27C5308600B04C97 /* ContentView.swift in Sources */,
-				816AF00D2408624900A4C85E /* ViewController.swift in Sources */,
 				81E5D0B327C526E0007B9A9A /* ExecutionService.swift in Sources */,
-				816AF00B2408624900A4C85E /* AppDelegate.swift in Sources */,
 				81A5E1F724096C4C00FF6E07 /* Log.swift in Sources */,
 				819D463F27C5433900B04C97 /* SuccessView.swift in Sources */,
 				81A5E1F924096C7600FF6E07 /* User.swift in Sources */,
@@ -319,7 +304,6 @@
 				819D461C27C5303D00B04C97 /* Filevault_ReissueApp.swift in Sources */,
 				819D463B27C53DC400B04C97 /* InformationView.swift in Sources */,
 				81A5E1FD2409B37200FF6E07 /* MainWindow.swift in Sources */,
-				816E66A1240DA14400481D93 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

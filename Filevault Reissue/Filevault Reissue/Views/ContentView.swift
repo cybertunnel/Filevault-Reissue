@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Image(nsImage: NSImage(named: NSImage.applicationIconName)!)
+                .padding()
             Text(Preferences.sharedInstance.viewTitle ?? "Acme Corporation")
                 .font(.title)
                 .padding()
