@@ -11,18 +11,17 @@
       "size" : "16x16"
     },
     {
-      "filename" : "icons8-safe-32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "icons8-safe-64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
+      "filename" : "Logo_128x128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
