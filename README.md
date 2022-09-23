@@ -1,9 +1,7 @@
 ![Swift 5.0](https://img.shields.io/static/v1.svg?label=Swift&message=4.0&color=green&logo=swift)
-![macOS 10.13](https://img.shields.io/static/v1.svg?label=macOS&message=10.13&color=green&logo=apple)
-![macOS 10.14](https://img.shields.io/static/v1.svg?label=macOS&message=10.14&color=green&logo=apple)
-![macOS 10.15](https://img.shields.io/static/v1.svg?label=macOS&message=10.15&color=green&logo=apple)
-![macOS 10.16](https://img.shields.io/static/v1.svg?label=macOS&message=10.16&color=yellow&logo=apple)
-![macOS Dark Mode](https://img.shields.io/static/v1.svg?label=Dark%20Mode&message=enabled&color=green&logo=apple)
+![macOS 11.x](https://img.shields.io/static/v1.svg?label=macOS&message=11.x&color=green&logo=apple)
+![macOS 12.x](https://img.shields.io/static/v1.svg?label=macOS&message=12.x&color=green&logo=apple)
+![macOS 13.x](https://img.shields.io/static/v1.svg?label=macOS&message=13.x&color=green&logo=apple)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Current Filevault-Reissue Version](https://img.shields.io/static/v1.svg?label=version&message=1.2&color=lightgrey)
@@ -11,31 +9,29 @@
 # Filevault-Reissue
 Filevault-Reissue's goal is to provide a sleek and elegant UI for reissuing Apple's Filevault recovery key.
 - Fully configurable using Preferences and Configuration Profiles
-- Sleek and responsive UI and that is fully brandable
+- Sleek and responsive UI and that is fully brandable using SwiftUI
 - Attempts to auto reissue using provided usernames and passwords
 
 ## In Action
 
 ### Prompt User Sees
-![Filevault Reissue Prompt](https://user-images.githubusercontent.com/23121750/75719634-129e2480-5ca3-11ea-9f48-3537c0c1a6e2.png)
+![Filevault Reissue Prompt](https://user-images.githubusercontent.com/23121750/192052495-f87a95e5-fb3e-4fd2-9300-1a908fe7f163.png)
 
 ### More Information Dialog
-![Filevault Reissue Info Dialog](https://user-images.githubusercontent.com/23121750/75719779-5a24b080-5ca3-11ea-9d8f-e791a31fafa8.png)
+![Filevault Reissue Info Dialog](https://user-images.githubusercontent.com/23121750/192052554-2ad83402-532b-439a-8ab9-b59f3b23af47.png)
 
-![Filevault Reissue Key Display](https://user-images.githubusercontent.com/23121750/75719867-893b2200-5ca3-11ea-863c-b079a629cb8b.png)
+![Filevault Reissue Key Display](https://user-images.githubusercontent.com/23121750/192052806-22ea4c56-56db-4660-88cb-77f1640bbb4f.png)
 
 ### Silent Reissue
 Filevault-Reissue has the ability to silently reissue the recovery key if a administrator username and password is provided.
 
-Ex: `/path/to/filevault --admin-usernames=uniadmin,localadmin --admin-passwords=supers3cret,monkeybones123`
+Ex: `/Utilities/Filevault\ Reissue.app/Content/MacOS/Filevault\ Reissue --admin-usernames=uniadmin,localadmin --admin-passwords=supers3cret,monkeybones123`
 
 The above example will try to authenticate to Filevault using both `uniadmin` and `localadmin` with both of the provided passwords `supers3cret` and `monkeybones123`. Keep in mind you may need to properly escape special characters.
 
 ## Quick Start
 
 1. Download latest version from the Releases
-    - We only have Betas right now
-2. Sign & Notarize the app for best results.
 3. Configure preferences for the following keys:
 
 | Key Name | Description | Type | Example |
