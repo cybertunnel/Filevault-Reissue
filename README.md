@@ -32,7 +32,7 @@ The above example will try to authenticate to Filevault using both `uniadmin` an
 ## Quick Start
 
 1. Download latest version from the Releases
-3. Configure preferences for the following keys:
+2. Configure preferences for the following keys:
 
 | Key Name | Description | Type | Example |
 | -------- | :---------: | :--: | :------ |
@@ -45,14 +45,10 @@ The above example will try to authenticate to Filevault using both `uniadmin` an
 | usernamePlaceholder | This is what will hold the place of the username field. Usually input a generic username that matches your scheme. | String | johnsmith |
 | passwordPlaceholder | This is what will hold the place of the password field. Feel free to be creative according to your company policy | String | P@$5\\/\\/0rcl |
 | moreInformationText | This is the text a user will be presented with if they click on the "More Information" button on the window | String | Acme uses the recovery key in our management servers to securely and safely enable your machine to unlock in the event your device has trouble unlocking. |
-
-4. Edit `postinstall` in `installer/scripts/` with your administrative accounts and passwords.
-    - `--admin-usernames` should look like `--admin-usernames="ladmin,itadmin,john"`
-    - `--admin-passwords` should look like `--admin-passwords="SuperMonkey123","Password"`
-5. Run the `build.sh` script in `installer/` to build the package
-6. Sign the package
-7. Deploy
-8. Drink coffee and watch results
+3. Run the `build.sh` script in `installer/` to build the package
+4. Sign the package
+5. Deploy
+6. Drink coffee and watch results
 
 ## Release History
 The release history is available [here](https://github.com/cybertunnel/Filevault-Reissue/blob/master/CHANGELOG.md).
@@ -61,6 +57,6 @@ The release history is available [here](https://github.com/cybertunnel/Filevault
 This project does not have a dedicated channel on the [MacAdmins Slack](https://macadmins.org) instance, but you can directly message me under the username `@cybertunnel`. As always, if you have an issue, please open an issue in this repository so I can allocate time to resolve the issue, or add the feature requested.
 
 ## Contributing
-I [cybertunnel](https://github.com/cybertunnel) have been working on this project for the company I currently work for. I have spent these past few months making it more customizable and stable for general use.
+I [cybertunnel](https://github.com/cybertunnel) I originally developed this for my company while doing macOS administration, but I continue developing this to ensure fellow admins have an easier way to reissue recovery keys on managed devices.
 
 Please feel free to fork and contribute.
